@@ -10,7 +10,7 @@ pipeline{
             steps{
                 echo "========Pull the Code From SCM========"
                 git branch: 'master',
-                    url: 'https://github.com/Narsi-Myteaching/weshopify-api-gateway.git'
+                    url: 'https://github.com/Umamahesh3456/weshopify-api-gateway.git'
                 echo "========source code pulling completed========"
             }
         }
