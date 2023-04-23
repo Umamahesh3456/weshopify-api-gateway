@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        label "worker-01-jenkins"
+        label "jenkins-worker-1"
     }
     tools{
         maven 'MAVEN_HOME'
@@ -24,7 +24,7 @@ pipeline{
         stage("Sonar Quality Analysis"){
             steps{
                 echo "========Sonar Quality Gate Starting========"
-                sh 'mvn verify sonar:sonar -Dsonar.projectKey=weshopify-platform-api-gateway -Dsonar.host.url=http://13.127.8.30:9000 -Dsonar.login=sqp_0ae649dd583abf6aca85d0c7cfb753272516790a -DskipTests=true'
+                sh 'mvn verify sonar:sonar -Dsonar.projectKey=weshopify-platform-api-gateway -Dsonar.host.url=http://65.0.152.251:9000/ -Dsonar.login= sqp_b8a39c1c9f0077934d984d520285bf4111370023 -DskipTests=true'
                 echo "========Sonar Quality Gate Analyzed the Artifact========"
             }
         }
@@ -39,11 +39,11 @@ pipeline{
             steps{
                 echo "Connecting to Ansible Server"
                 sshagent(['ANSIBLE_SERVER']){
-                    sh 'scp Dockerfile ansible-admin@172.31.7.122:/opt/weshopify-api-gateway/ci-files'
-                    sh 'scp weshopify-api-gateway-playbook.yml ansible-admin@172.31.7.122:/opt/weshopify-api-gateway/ci-files'
-                    sh 'scp jfrog.sh ansible-admin@172.31.7.122:/opt/weshopify-api-gateway/ci-files'
+                    sh 'scp Dockerfile ansible-admin@192.168.0.4:/opt/weshopify-api-gateway/ci-files'
+                    sh 'scp weshopify-api-gateway-playbook.yml ansible-admin@192.168.0.4:/opt/weshopify-api-gateway/ci-files'
+                    sh 'scp jfrog.sh ansible-admin@192.168.0.4:/opt/weshopify-api-gateway/ci-files'
                     sh '''
-                        ssh -tt ansible-admin@172.31.7.122 << EOF
+                        ssh -tt ansible-admin@192.168.0.4 << EOF
                             ansible-playbook /opt/weshopify-api-gateway/ci-files/weshopify-api-gateway-playbook.yml
                             exit
                         EOF
