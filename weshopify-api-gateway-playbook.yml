@@ -22,13 +22,13 @@
      shell: chmod 777 ./gateway-app-dir/Dockerfile
 
    - name: build the docker image
-     shell: echo admin | sudo -S docker build -f ./gateway-app-dir/Dockerfile --tag narsimybooks/weshopify-gateway-svc-img .
+     shell: echo admin | sudo -S docker build -f ./gateway-app-dir/Dockerfile --tag umamahesh3/weshopify-gateway-svc-img .
    
    - name: push the docker image to docker hub
-     shell: echo admin | sudo -S docker push narsimybooks/weshopify-gateway-svc-img
+     shell: echo admin | sudo -S docker push umamahesh3/weshopify-gateway-svc-img
 
    - name: remove the image locally
-     shell: echo admin | sudo -S docker rmi narsimybooks/weshopify-gateway-svc-img
+     shell: echo admin | sudo -S docker rmi umamahesh3/weshopify-gateway-svc-img
    
    - name: remove the gateway-app-dir
      shell: rm -rf gateway-app-dir
