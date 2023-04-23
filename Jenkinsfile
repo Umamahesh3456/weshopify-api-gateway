@@ -24,7 +24,7 @@ pipeline{
         stage("Sonar Quality Analysis"){
             steps{
                 echo "========Sonar Quality Gate Starting========"
-                sh 'mvn verify sonar:sonar -Dsonar.projectKey=weshopify-platform-api-gateway -Dsonar.host.url=http://65.0.152.251:9000/ -Dsonar.login= sqp_b8a39c1c9f0077934d984d520285bf4111370023 -DskipTests=true'
+                sh 'mvn verify sonar:sonar -Dsonar.projectKey=weshopify-platform-api-gateway -Dsonar.host.url=http://65.0.152.251:9000/ -Dsonar.login=sqp_b8a39c1c9f0077934d984d520285bf4111370023 -DskipTests=true'
                 echo "========Sonar Quality Gate Analyzed the Artifact========"
             }
         }
