@@ -1,6 +1,6 @@
 # http://15.207.64.68:8082/artifactory/libs-snapshot-local/
 #com/durgasoft/weshopify-platform-services-registry/
-ARTIFACT_SERVER_URL=http://15.207.64.68:8082/artifactory
+ARTIFACT_SERVER_URL=http://43.205.70.176:8082/artifactory
 ARTIFACT_REPO_NAME=libs-snapshot-local
 ARTIFACT_LOC=com/durgasoft/weshopify-platform-api-gateway
 ARTIFACT_VERSION=0.0.1-SNAPSHOT
